@@ -7,10 +7,15 @@
 
     <button mat-raised-button color="primary" class="start-button" (click)="GetAllInformation()">Start</button>
 
-
     <div class="terminal">
         <p *ngIf="TargetWebsite">whois {{TargetWebsite}}</p>
         <p *ngIf="WhoIsResult">{{WhoIsResult.data}}</p>
+    </div>
+
+    <div class="terminal">
+        <br>
+        <p *ngIf="TargetWebsite">cookies {{TargetWebsite}}</p>
+        <p *ngIf="CoockiesResult">{{CoockiesResult | json}}</p>
     </div>
 
 </div>
