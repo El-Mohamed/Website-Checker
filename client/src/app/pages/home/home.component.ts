@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit
 {
 
   WhoIsResult: WhoIsResult = {} as WhoIsResult;
+  CoockiesResult: any;
   TargetWebsite: string;
 
   constructor(public backendService: BackendService) { }
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit
   GetAllInformation()
   {
     this.GetWhoIsInformation();
+    this.GetCookies();
   }
 
   async GetWhoIsInformation()
@@ -32,6 +34,17 @@ export class HomeComponent implements OnInit
     catch (error) {
       console.log("error");
     }
+  }
+
+  async GetCookies()
+  {
+    try {
+      this.CoockiesResult = this.backendService.GetCookies(this.TargetWebsite);
+    }
+    catch (error) {
+      console.log(error);
+    }
+
   }
 
 }

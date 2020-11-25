@@ -16,4 +16,10 @@ export class BackendService
     const url = this.requestUrl + 'whois';
     return this.http.get<WhoIsResult>(url).toPromise();
   }
+
+  GetCookies(target: string)
+  {
+    const url = this.requestUrl + 'cookies';
+    return this.http.get<any>(url).toPromise();
+  }
 }
