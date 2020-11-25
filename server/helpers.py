@@ -4,6 +4,7 @@ from flask import jsonify
 import subprocess
 import requests
 from collections import namedtuple
+import json
 
 def get_who_is(domain):
 	command = "whois {}".format(domain)
@@ -16,7 +17,9 @@ def get_cookies(domain):
 	a_session = requests.Session()
 	a_session = requests.get(str(domain))
 	session_cookies = a_session.cookies
-	d  = session_cookies.get_dict()
-	obj1 = namedtuple("Employee", d.keys())(*d.values())
-	return jsonify(obj1)
+	cookies_dictonairy  = session_cookies.get_dict()
+#	object = namedtuple("DataObject", cookies_dictonairy.keys())(*cookies_dictonairy.values())
+#	json_result = json.dumps(object, separators=(',', ':'))
+	result = { 'data': str(cookies_dictonairy) }
+	return jsonify(result)
 

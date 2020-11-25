@@ -10,7 +10,7 @@ def GetWhoIs():
 
 @app.route("/api/cookies")
 def GetCookies():
-	return(helpers.get_cookies("https://google.com"))
+	return(helpers.get_cookies("https://bol.com"))
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0')
