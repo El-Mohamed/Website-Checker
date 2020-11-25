@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit
 
   ngOnInit(): void
   {
+  }
+
+  GetAllInformation()
+  {
     this.GetWhoIsInformation();
   }
 
@@ -25,7 +29,7 @@ export class HomeComponent implements OnInit
     try {
       this.WhoIsResult = await this.backendService.GetWhoIsInformation('mmcrypto.org');
     }
-    catch (err) {
+    catch (error) {
       console.log("error");
     }
   }

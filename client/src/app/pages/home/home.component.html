@@ -2,14 +2,15 @@
 
     <mat-form-field class="target-website">
         <mat-label>Target Website</mat-label>
-        <input [(ngModel)]="TargetWebsite" matInput placeholder="www.example.com">
+        <input matInput placeholder="www.example.com" [(ngModel)]="TargetWebsite">
     </mat-form-field>
+
+    <button mat-raised-button color="primary" class="start-button" (click)="GetAllInformation()">Start</button>
 
 
     <div class="terminal">
         <p *ngIf="TargetWebsite">whois {{TargetWebsite}}</p>
-        <p *ngIf="TargetWebsite">{{WhoIsResult.data}}</p>
-
+        <p *ngIf="WhoIsResult">{{WhoIsResult.data}}</p>
     </div>
 
 </div>

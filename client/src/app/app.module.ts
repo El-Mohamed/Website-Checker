@@ -10,7 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    CommonModule,
     // Material
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
+    MatButtonModule,
     HttpClientModule
   ],
   providers: [],
