@@ -2,12 +2,14 @@
 
     <mat-form-field class="target-website">
         <mat-label>Target Website</mat-label>
-        <input matInput placeholder="www.example.com">
+        <input [(ngModel)]="TargetWebsite" matInput placeholder="www.example.com">
     </mat-form-field>
 
 
     <div class="terminal">
-        <pre>ng add @angular/material</pre>
+        <p *ngIf="TargetWebsite">whois {{TargetWebsite}}</p>
+        <p *ngIf="TargetWebsite">{{WhoIsResult.data}}</p>
+
     </div>
 
 </div>

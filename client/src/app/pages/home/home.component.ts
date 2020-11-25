@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit
 {
 
   WhoIsResult: WhoIsResult = {} as WhoIsResult;
+  TargetWebsite: string;
 
   constructor(public backendService: BackendService) { }
 
@@ -23,7 +24,6 @@ export class HomeComponent implements OnInit
   {
     try {
       this.WhoIsResult = await this.backendService.GetWhoIsInformation('mmcrypto.org');
-      console.log(this.WhoIsResult.data);
     }
     catch (err) {
       console.log("error");
