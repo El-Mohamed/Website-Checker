@@ -20,7 +20,7 @@ $client-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$client-theme: mat-dark-theme((
+$client-theme: mat-light-theme((
   color: (
     primary: $client-primary,
     accent: $client-accent,
