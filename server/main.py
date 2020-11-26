@@ -12,5 +12,10 @@ def GetWhoIs():
 def GetCookies():
 	return(helpers.get_cookies("https://bol.com"))
 
+@app.route("/api/certificate")
+def GetCertificate():
+        return(helpers.get_certificate("www.bol.com"))
+
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0')
