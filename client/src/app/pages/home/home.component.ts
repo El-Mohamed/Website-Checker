@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit
   async GetCookies()
   {
     try {
-      this.CoockiesResult = this.backendService.GetCookies(this.TargetWebsite);
+      this.CoockiesResult = await this.backendService.GetCookies(this.TargetWebsite);
     }
     catch (error) {
       console.log(error);
@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit
   async GetCertificate()
   {
     try {
-      this.CertificateResult = this.backendService.GetCertificate(this.TargetWebsite);
+      this.CertificateResult = await this.backendService.GetCertificate(this.TargetWebsite);
+      console.log(this.CertificateResult);
       this.ToArray();
     }
     catch (error) {
@@ -64,8 +65,8 @@ export class HomeComponent implements OnInit
   ToArray()
   {
     var res = "";
-    for (var x = 0; x < this.CertInfo.length; x++) {
-      var r = this.CertInfo[x] + this.CertInfo[x + 1] + this.CertInfo[x + 2];
+    for (var x = 0; x < this.CertificateResult.data.length; x++) {
+      var r = this.CertificateResult.data[x] + this.CertificateResult.data[x + 1] + this.CertificateResult.data[x + 2];
       if (r == "\\n ") {
         console.log(r);
 
@@ -73,7 +74,7 @@ export class HomeComponent implements OnInit
         res = "";
       }
       else {
-        res = res + this.CertInfo[x];
+        res = res + this.CertificateResult.data[x];
       }
     }
     console.log(this.CertArray);
