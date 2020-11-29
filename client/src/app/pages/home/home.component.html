@@ -18,4 +18,10 @@
         <p *ngIf="CoockiesResult">{{CoockiesResult | json}}</p>
     </div>
 
+    <div class="terminal">
+        <br>
+        <p *ngIf="TargetWebsite">certificate {{TargetWebsite}}</p>
+        <p *ngFor="let a of CertArray">{{a}}</p>
+    </div>
+
 </div>
