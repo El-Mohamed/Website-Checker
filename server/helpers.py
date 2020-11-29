@@ -24,8 +24,8 @@ def get_cookies(domain):
 	return jsonify(result)
 
 def get_certificate(domain):
-        command = "echo | openssl s_client -servername {} -connect {}:443 2>/dev/null | openssl x509 -text".format(domain, domain)
-        subprocess1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
-        who_is_output = subprocess1.stdout.read()
-        data = {'data': str(who_is_output)}
-        return jsonify(data)
+	command = "echo | openssl s_client -servername {} -connect {}:443 2>/dev/null | openssl x509 -text".format(domain, domain)
+	subprocess1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+	result = subprocess1.stdout.read()
+	data = {'data': str(result)}
+	return jsonify(data)
