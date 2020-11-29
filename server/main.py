@@ -4,17 +4,17 @@ import helpers
 app = Flask(__name__)
 cors = CORS(app)
 
-@app.route("/api/whois")
-def GetWhoIs():
-	return(helpers.get_who_is("mmcrypto.org"))
+@app.route("/api/whois/<target>")
+def GetWhoIs(target):
+	return(helpers.get_who_is(target))
 
-@app.route("/api/cookies")
-def GetCookies():
-	return(helpers.get_cookies("https://bol.com"))
+@app.route("/api/cookies/<target>")
+def GetCookies(target):
+	return(helpers.get_cookies("https://" + target))
 
-@app.route("/api/certificate")
-def GetCertificate():
-        return(helpers.get_certificate("www.bol.com"))
+@app.route("/api/certificate/<target>")
+def GetCertificate(target):
+        return(helpers.get_certificate(target))
 
 
 if __name__ == '__main__':
