@@ -9,7 +9,7 @@
 
     <div class="terminal">
         <p *ngIf="TargetWebsite">whois {{TargetWebsite}}</p>
-        <p *ngIf="WhoIsResult">{{WhoIsResult.data}}</p>
+        <p *ngFor="let item of WhoIsToArray">{{item}}</p>
     </div>
 
     <div class="terminal">
@@ -21,7 +21,7 @@
     <div class="terminal">
         <br>
         <p *ngIf="TargetWebsite">certificate {{TargetWebsite}}</p>
-        <p *ngFor="let a of CertArray">{{a}}</p>
+        <p *ngFor="let item of CertificateToArray">{{item}}</p>
     </div>
 
 </div>
