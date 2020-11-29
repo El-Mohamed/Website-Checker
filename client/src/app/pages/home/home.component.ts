@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit
   async GetWhoIsInformation()
   {
     try {
-      this.WhoIsResult = await this.backendService.GetWhoIsInformation('mmcrypto.org');
+      this.WhoIsResult = await this.backendService.GetWhoIsInformation(this.TargetWebsite);
       this.WhoIsToArray = this.WhoIsResult.data.split('\\n');
     }
     catch (error) {

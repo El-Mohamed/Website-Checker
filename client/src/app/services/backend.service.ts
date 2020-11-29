@@ -13,19 +13,19 @@ export class BackendService
 
   GetWhoIsInformation(target: string)
   {
-    const url = this.requestUrl + 'whois';
+    const url = this.requestUrl + 'whois/' + target;
     return this.http.get<WhoIsResult>(url).toPromise();
   }
 
   GetCookies(target: string)
   {
-    const url = this.requestUrl + 'cookies';
+    const url = this.requestUrl + 'cookies/' + target;
     return this.http.get<any>(url).toPromise();
   }
 
   GetCertificate(target: string)
   {
-    const url = this.requestUrl + 'certificate';
+    const url = this.requestUrl + 'certificate/' + target;
     return this.http.get<any>(url).toPromise();
   }
 }
