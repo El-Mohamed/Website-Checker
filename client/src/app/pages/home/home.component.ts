@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit
 
   CertificateToArray: string[] = [];
   WhoIsToArray: string[] = [];
+  CookiesArray: string[] = [];
 
   constructor(public backendService: BackendService) { }
 
@@ -47,6 +48,8 @@ export class HomeComponent implements OnInit
   {
     try {
       this.CoockiesResult = await this.backendService.GetCookies(this.TargetWebsite);
+      this.CookiesArray = this.CoockiesResult.data.split(",");
+      console.log(this.CookiesArray);
     }
     catch (error) {
       console.log(error);
