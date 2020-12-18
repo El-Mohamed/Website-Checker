@@ -15,7 +15,7 @@
     <div class="terminal">
         <br>
         <p *ngIf="TargetWebsite">cookies {{TargetWebsite}}</p>
-        <p *ngIf="CoockiesResult">{{CoockiesResult | json}}</p>
+        <p *ngFor="let item of CookiesArray">{{item}}</p>
     </div>
 
     <div class="terminal">
