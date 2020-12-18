@@ -1,13 +1,17 @@
 <div class="content">
 
-    <mat-form-field class="target-website">
-        <mat-label>Target Website</mat-label>
-        <input matInput placeholder="www.example.com" [(ngModel)]="TargetWebsite">
-    </mat-form-field>
+    <div class="user-input">
 
-    <button mat-raised-button color="primary" class="start-button" (click)="GetAllInformation()">Start</button>
+        <mat-form-field class="target-website">
+            <mat-label>Target Website</mat-label>
+            <input matInput placeholder="www.example.com" [(ngModel)]="TargetWebsite" autocomplete="off">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="start-button" (click)="GetAllInformation()">Start</button>
+    </div>
 
     <div class="terminal">
+        <br>
         <p *ngIf="TargetWebsite">whois {{TargetWebsite}}</p>
         <p *ngFor="let item of WhoIsToArray">{{item}}</p>
     </div>

@@ -3,13 +3,15 @@
     margin: 0 auto;
 }
 
-.target-website {
-    width: 100%;
+.user-input {
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
-.start-button {
-    width: 20%;
-    margin: 0 auto;
+.target-website, .start-button {
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
