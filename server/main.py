@@ -16,6 +16,9 @@ def GetCookies(target):
 def GetCertificate(target):
         return(helpers.get_certificate(target))
 
+@app.route("/api/nslookup/<target>")
+def GetNsLookUp(target):
+	return(helpers.get_ns_lookup(target))
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0')

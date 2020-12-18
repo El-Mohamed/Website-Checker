@@ -29,3 +29,11 @@ def get_certificate(domain):
 	result = subprocess1.stdout.read()
 	data = {'data': str(result)}
 	return jsonify(data)
+
+def get_ns_lookup(domain):
+	command = "nslookup " + domain 
+	subprocess1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+	result = subprocess1.stdout.read()
+	data = {'data': str(result)}
+	return jsonify(data)
+
