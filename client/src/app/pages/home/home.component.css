@@ -10,8 +10,12 @@
     margin-top: 5%;
 }
 
-.target-website, .start-button {
+.target-website, .start-button, .user-mode {
     width: 100%;
+}
+
+.user-mode {
+    margin-top: 5%;
 }
 
 h1, h2, h3, h4, h5, h6 {

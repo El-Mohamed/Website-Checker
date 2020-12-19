@@ -8,6 +8,15 @@
         </mat-form-field>
 
         <button mat-raised-button color="primary" class="start-button" (click)="GetAllInformation()">Start</button>
+
+        <mat-form-field appearance="fill" class="user-mode">
+            <mat-label>Mode</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let userMode of UserModes" [value]="userMode">
+                    {{userMode}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 
     <div class="terminal">

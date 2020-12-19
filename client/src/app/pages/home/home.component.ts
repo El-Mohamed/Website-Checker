@@ -10,6 +10,8 @@ import { BackendService } from 'src/app/services/backend.service';
 export class HomeComponent implements OnInit
 {
 
+  UserModes: string[] = ["All Modes", "Who Is", "Cookies", "Certificate", "NS Lookup"];
+
   WhoIsResult: WhoIsResult = {} as WhoIsResult;
   CoockiesResult: any;
   CertificateResult: any;
