@@ -46,7 +46,7 @@
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == ScraperMode">
         <p>Scraper</p>
         <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
-        <p>{{ScraperResult}}</p>
+        <p *ngIf="ScraperResult.data">{{ScraperResult}}</p>
     </div>
 
 </div>
