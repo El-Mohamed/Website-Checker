@@ -20,5 +20,9 @@ def GetCertificate(target):
 def GetNsLookUp(target):
 	return(helpers.get_ns_lookup(target))
 
+@app.route("/api/scraper/<target>")
+def GetScrapedWebsite(target):
+	return(helpers.get_scraped_website(target))
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0')

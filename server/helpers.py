@@ -44,5 +44,5 @@ def get_scraped_website(domain):
 	DOM = webpage.read()
 	webpage.close()
 	html = str(DOM)
-        data = {'data': str(html)}
-        return jsonify(data)
+	data = {'data': str(html)}
+	return jsonify(data)
