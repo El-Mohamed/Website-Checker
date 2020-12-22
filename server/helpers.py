@@ -5,6 +5,7 @@ import subprocess
 import requests
 from collections import namedtuple
 import json
+import urllib.request
 
 def get_who_is(domain):
 	command = "whois {}".format(domain)
@@ -37,3 +38,11 @@ def get_ns_lookup(domain):
 	data = {'data': str(result)}
 	return jsonify(data)
 
+def get_scraped_website(domain):
+	url = 'https://{}'.format(domain)
+	webpage = urllib.request.urlopen(url)
+	DOM = webpage.read()
+	webpage.close()
+	html = str(DOM)
+        data = {'data': str(html)}
+        return jsonify(data)
