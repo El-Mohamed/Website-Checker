@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WhoIsResult } from 'src/app/interfaces/WhoIsResult';
+// Models
+import { ApiResult } from 'src/app/interfaces/WhoIsResult';
+// Results
 import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
@@ -10,27 +12,36 @@ import { BackendService } from 'src/app/services/backend.service';
 export class HomeComponent implements OnInit
 {
 
+  // User Modes
+
   WhoIsMode: string = "Who Is";
   SSLMode: string = "Certificate";
   CookieMode: string = "Cookie Scan";
   NsLookupMode: string = "NS Lookup";
   ScraperMode: string = "Scraper";
   AllModes: string = "All";
-  UserModes: string[] = [this.AllModes, this.NsLookupMode, this.WhoIsMode, this.SSLMode, this.CookieMode, this.ScraperMode];
+
+  UserModes: string[] = [this.AllModes, this.WhoIsMode, this.CookieMode, this.SSLMode, this.NsLookupMode, this.ScraperMode];
   CurrentMode: string = this.AllModes;
 
-  WhoIsResult: WhoIsResult = {} as WhoIsResult;
-  CoockiesResult: any;
-  CertificateResult: any;
-  NsLookupResult: any;
-  ScraperResult: any;
+  // Results
 
-  TargetWebsite: string;
+  WhoIsResult: ApiResult = {} as ApiResult;
+  CoockiesResult: ApiResult = {} as ApiResult;
+  CertificateResult: ApiResult = {} as ApiResult;
+  NsLookupResult: ApiResult = {} as ApiResult;
+  ScraperResult: ApiResult = {} as ApiResult;
+
+  // Parsed Results
 
   CertificateToArray: string[] = [];
   WhoIsToArray: string[] = [];
   CookiesArray: string[] = [];
   NsLookupArray: string[] = [];
+
+  // User Input
+
+  TargetWebsite: string;
 
   constructor(public backendService: BackendService) { }
 
@@ -102,5 +113,4 @@ export class HomeComponent implements OnInit
       console.log(error);
     }
   }
-
 }

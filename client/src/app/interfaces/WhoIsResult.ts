@@ -1,4 +1,4 @@
-export interface WhoIsResult
+export interface ApiResult
 {
     data: string;
 }

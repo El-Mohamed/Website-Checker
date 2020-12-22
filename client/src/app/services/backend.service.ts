@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { WhoIsResult } from '../interfaces/WhoIsResult';
+import { ApiResult } from '../interfaces/WhoIsResult';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class BackendService
   GetWhoIsInformation(target: string)
   {
     const url = this.requestUrl + 'whois/' + target;
-    return this.http.get<WhoIsResult>(url).toPromise();
+    return this.http.get<ApiResult>(url).toPromise();
   }
 
   GetCookies(target: string)
