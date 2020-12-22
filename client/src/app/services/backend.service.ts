@@ -28,4 +28,10 @@ export class BackendService
     const url = this.requestUrl + 'certificate/' + target;
     return this.http.get<any>(url).toPromise();
   }
+
+  GetNSLookup(target: string)
+  {
+    const url = this.requestUrl + 'nslookup/' + target;
+    return this.http.get<any>(url).toPromise();
+  }
 }

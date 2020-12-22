@@ -37,4 +37,10 @@
         <p *ngFor="let item of CertificateToArray">{{item}}</p>
     </div>
 
+    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == NsLookup">
+        <p>NS Lookup</p>
+        <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
+        <p *ngFor="let item of NsLookupArray">{{item}}</p>
+    </div>
+
 </div>

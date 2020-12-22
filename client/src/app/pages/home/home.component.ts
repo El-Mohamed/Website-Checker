@@ -13,19 +13,22 @@ export class HomeComponent implements OnInit
   WhoIs: string = "WhoIs";
   SSL: string = "SSL";
   Cookie: string = "Cookie";
+  NsLookup: string = "NsLookup";
   AllModes: string = "All";
-  UserModes: string[] = [this.WhoIs, this.SSL, this.Cookie, this.AllModes];
+  UserModes: string[] = [this.NsLookup, this.WhoIs, this.SSL, this.Cookie, this.AllModes];
   CurrentMode: string = "";
 
   WhoIsResult: WhoIsResult = {} as WhoIsResult;
   CoockiesResult: any;
   CertificateResult: any;
+  NsLookupResult: any;
 
   TargetWebsite: string;
 
   CertificateToArray: string[] = [];
   WhoIsToArray: string[] = [];
   CookiesArray: string[] = [];
+  NsLookupArray: string[] = [];
 
   constructor(public backendService: BackendService) { }
 
@@ -38,6 +41,7 @@ export class HomeComponent implements OnInit
     this.GetWhoIsInformation();
     this.GetCookies();
     this.GetCertificate();
+    this.GetNsLookup();
   }
 
   async GetWhoIsInformation()
@@ -68,6 +72,17 @@ export class HomeComponent implements OnInit
     try {
       this.CertificateResult = await this.backendService.GetCertificate(this.TargetWebsite);
       this.CertificateToArray = this.CertificateResult.data.split('\\n');
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  async GetNsLookup()
+  {
+    try {
+      this.NsLookupResult = await this.backendService.GetNSLookup(this.TargetWebsite);
+      this.NsLookupArray = this.NsLookupResult.data.split('\\n');
     }
     catch (error) {
       console.log(error);
