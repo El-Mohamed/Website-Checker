@@ -4,7 +4,7 @@
 }
 
 .user-input {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 5%;
     margin-top: 5%;
@@ -61,4 +61,13 @@ p {
     color: white;
     padding: 0 1rem 1rem;
     margin: 0;
+}
+
+@media only screen and (min-width: 1025px) {
+    .content {
+        width: 60%;
+    }
+    .user-input {
+        width: 40%;
+    }
 }
