@@ -14,14 +14,16 @@ export class HomeComponent implements OnInit
   SSLMode: string = "Certificate";
   CookieMode: string = "Cookie Scan";
   NsLookupMode: string = "NS Lookup";
+  ScraperMode: string = "Scraper";
   AllModes: string = "All";
-  UserModes: string[] = [this.AllModes, this.NsLookupMode, this.WhoIsMode, this.SSLMode, this.CookieMode];
+  UserModes: string[] = [this.AllModes, this.NsLookupMode, this.WhoIsMode, this.SSLMode, this.CookieMode, this.ScraperMode];
   CurrentMode: string = this.AllModes;
 
   WhoIsResult: WhoIsResult = {} as WhoIsResult;
   CoockiesResult: any;
   CertificateResult: any;
   NsLookupResult: any;
+  ScraperResult: any;
 
   TargetWebsite: string;
 
@@ -42,6 +44,7 @@ export class HomeComponent implements OnInit
     this.GetCookies();
     this.GetCertificate();
     this.GetNsLookup();
+    this.GetScrapedWebsite();
   }
 
   async GetWhoIsInformation()
@@ -83,6 +86,17 @@ export class HomeComponent implements OnInit
     try {
       this.NsLookupResult = await this.backendService.GetNSLookup(this.TargetWebsite);
       this.NsLookupArray = this.NsLookupResult.data.split('\\n');
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  async GetScrapedWebsite()
+  {
+    try {
+      var result = await this.backendService.GetScrapedWebsite(this.TargetWebsite);
+      this.ScraperResult = result.data;
     }
     catch (error) {
       console.log(error);

@@ -43,4 +43,10 @@
         <p *ngFor="let item of NsLookupArray">{{item}}</p>
     </div>
 
+    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == ScraperMode">
+        <p>Scraper</p>
+        <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
+        <p>{{ScraperResult}}</p>
+    </div>
+
 </div>

@@ -34,4 +34,10 @@ export class BackendService
     const url = this.requestUrl + 'nslookup/' + target;
     return this.http.get<any>(url).toPromise();
   }
+
+  GetScrapedWebsite(target: string)
+  {
+    const url = this.requestUrl + 'scraper/' + target;
+    return this.http.get<any>(url).toPromise();
+  }
 }
