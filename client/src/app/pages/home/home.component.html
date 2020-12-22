@@ -19,21 +19,21 @@
         </mat-form-field>
     </div>
 
-    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WhoIsMode">
-        <br>
-        <p *ngIf="TargetWebsite">whois {{TargetWebsite}}</p>
+    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WhoIs">
+        <p>Who Is Scanner</p>
+        <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
         <p *ngFor="let item of WhoIsToArray">{{item}}</p>
     </div>
 
-    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == CookieMode">
-        <br>
-        <p *ngIf="TargetWebsite">cookies {{TargetWebsite}}</p>
+    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WhoIs">
+        <p>Cookie Scanner</p>
+        <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
         <p *ngFor="let item of CookiesArray">{{item}}</p>
     </div>
 
-    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == SSLMode">
-        <br>
-        <p *ngIf="TargetWebsite">certificate {{TargetWebsite}}</p>
+    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WhoIs">
+        <p>SSL Scanner</p>
+        <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
         <p *ngFor="let item of CertificateToArray">{{item}}</p>
     </div>
 
