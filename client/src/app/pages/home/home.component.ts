@@ -10,13 +10,13 @@ import { BackendService } from 'src/app/services/backend.service';
 export class HomeComponent implements OnInit
 {
 
-  WhoIs: string = "WhoIs";
-  SSL: string = "SSL";
-  Cookie: string = "Cookie";
-  NsLookup: string = "NsLookup";
+  WhoIsMode: string = "Who Is";
+  SSLMode: string = "Certificate";
+  CookieMode: string = "Cookie Scan";
+  NsLookupMode: string = "NS Lookup";
   AllModes: string = "All";
-  UserModes: string[] = [this.NsLookup, this.WhoIs, this.SSL, this.Cookie, this.AllModes];
-  CurrentMode: string = "";
+  UserModes: string[] = [this.AllModes, this.NsLookupMode, this.WhoIsMode, this.SSLMode, this.CookieMode];
+  CurrentMode: string = this.AllModes;
 
   WhoIsResult: WhoIsResult = {} as WhoIsResult;
   CoockiesResult: any;
