@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit
   {
     try {
       this.WhoIsResult = await this.backendService.GetWhoIsInformation(this.TargetWebsite);
+      this.WhoIsResult.data = this.WhoIsResult.data.replace("'", '');
       this.WhoIsToArray = this.WhoIsResult.data.split('\\n');
     }
     catch (error) {

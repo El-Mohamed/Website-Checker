@@ -21,14 +21,12 @@
 
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WhoIsMode">
         <p>Who Is Scanner</p>
-        <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
         <p *ngFor="let item of WhoIsToArray">{{item}}</p>
     </div>
 
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == CookieMode">
         <p>Cookie Scanner</p>
         <p *ngFor="let item of CookiesArray; let i = index">{{i}} - {{item}}</p>
-        <p></p>
     </div>
 
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == SSLMode">
