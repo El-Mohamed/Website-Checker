@@ -37,7 +37,6 @@
 
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == NsLookupMode">
         <p>NS Lookup</p>
-        <p *ngIf="TargetWebsite">{{TargetWebsite}}</p>
         <p *ngFor="let item of NsLookupArray">{{item}}</p>
     </div>
 

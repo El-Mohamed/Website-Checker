@@ -63,6 +63,7 @@ export class HomeComponent implements OnInit
     try {
       this.WhoIsResult = await this.backendService.GetWhoIsInformation(this.TargetWebsite);
       this.WhoIsResult.data = this.WhoIsResult.data.replace("'", '');
+      this.WhoIsResult.data = this.RemoveAtIndex(this.WhoIsResult.data, 1);
       this.WhoIsToArray = this.WhoIsResult.data.split('\\n');
     }
     catch (error) {
@@ -76,6 +77,7 @@ export class HomeComponent implements OnInit
       this.CoockiesResult = await this.backendService.GetCookies(this.TargetWebsite);
       this.CoockiesResult.data = this.CoockiesResult.data.replace('{', '');
       this.CoockiesResult.data = this.CoockiesResult.data.replace('}', '');
+
       this.CookiesArray = this.CoockiesResult.data.split(",");
       console.log(this.CookiesArray);
     }
@@ -88,6 +90,7 @@ export class HomeComponent implements OnInit
   {
     try {
       this.CertificateResult = await this.backendService.GetCertificate(this.TargetWebsite);
+      this.CertificateResult.data = this.CertificateResult.data.replace("'", '');
       this.CertificateToArray = this.CertificateResult.data.split('\\n');
     }
     catch (error) {
@@ -99,6 +102,7 @@ export class HomeComponent implements OnInit
   {
     try {
       this.NsLookupResult = await this.backendService.GetNSLookup(this.TargetWebsite);
+      this.NsLookupResult.data = this.NsLookupResult.data.replace("'", '');
       this.NsLookupArray = this.NsLookupResult.data.split('\\n');
     }
     catch (error) {
@@ -115,5 +119,11 @@ export class HomeComponent implements OnInit
     catch (error) {
       console.log(error);
     }
+  }
+
+  RemoveAtIndex(str: string, index: number)
+  {
+    str = str.substring(0, index - 1) + str.substring(index, str.length);
+    return str;
   }
 }
