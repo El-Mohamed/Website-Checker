@@ -40,4 +40,10 @@ export class BackendService
     const url = this.requestUrl + 'scraper/' + target;
     return this.http.get<any>(url).toPromise();
   }
+
+  PingWebsite(target: string)
+  {
+    const url = this.requestUrl + 'ping/' + target;
+    return this.http.get<any>(url).toPromise();
+  }
 }

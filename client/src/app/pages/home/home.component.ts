@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit
   CertificateResult: ApiResult = {} as ApiResult;
   NsLookupResult: ApiResult = {} as ApiResult;
   ScraperResult: ApiResult = {} as ApiResult;
+  PingResult: ApiResult = {} as ApiResult;
 
   // Parsed Results
 
@@ -57,6 +58,7 @@ export class HomeComponent implements OnInit
     this.GetCertificate();
     this.GetNsLookup();
     this.GetScrapedWebsite();
+    this.PingWebsite();
   }
 
   async GetWhoIsInformation()
@@ -120,6 +122,17 @@ export class HomeComponent implements OnInit
   {
     try {
       this.ScraperResult = await this.backendService.GetScrapedWebsite(this.TargetWebsite);
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  async PingWebsite()
+  {
+    try {
+      this.PingResult = await this.backendService.PingWebsite(this.TargetWebsite);
+      console.log(this.PingResult);
     }
     catch (error) {
       console.log(error);
