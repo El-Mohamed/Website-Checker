@@ -118,8 +118,7 @@ export class HomeComponent implements OnInit
   async GetScrapedWebsite()
   {
     try {
-      var result = await this.backendService.GetScrapedWebsite(this.TargetWebsite);
-      this.ScraperResult = result.data;
+      this.ScraperResult = await this.backendService.GetScrapedWebsite(this.TargetWebsite);
     }
     catch (error) {
       console.log(error);

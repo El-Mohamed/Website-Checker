@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatButtonModule,
     HttpClientModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
