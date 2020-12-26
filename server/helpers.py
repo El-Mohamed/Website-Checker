@@ -7,6 +7,13 @@ from collections import namedtuple
 import json
 import urllib.request
 
+def ping_website(domain):
+	command = "ping -c 3 {}".format(domain)
+	subprocess1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+	ping_output = subprocess1.stdout.read()
+	data = {'data': str(ping_output)}
+	return jsonify(data)
+
 def get_who_is(domain):
 	command = "whois {}".format(domain)
 	subprocess1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)

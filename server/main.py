@@ -4,6 +4,10 @@ import helpers
 app = Flask(__name__)
 cors = CORS(app)
 
+@app.route("/api/ping/<target>")
+def GetPing(target):
+        return(helpers.ping_website(target))
+
 @app.route("/api/whois/<target>")
 def GetWhoIs(target):
 	return(helpers.get_who_is(target))
