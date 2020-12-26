@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 // Models
 import { ApiResult } from 'src/app/interfaces/WhoIsResult';
 // Results
@@ -43,7 +44,7 @@ export class HomeComponent implements OnInit
 
   TargetWebsite: string;
 
-  constructor(public backendService: BackendService) { }
+  constructor(public backendService: BackendService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void
   {
@@ -129,5 +130,12 @@ export class HomeComponent implements OnInit
   {
     str = str.substring(0, index - 1) + str.substring(index, str.length);
     return str;
+  }
+
+  ShowMessage()
+  {
+    this._snackBar.open('Copied To Clipboard', '', {
+      duration: 1000
+    });
   }
 }

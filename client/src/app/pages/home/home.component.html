@@ -23,7 +23,7 @@
         <div class="terminal-header">
             <p>Who Is Scanner</p>
             <button mat-raised-button class="copy-button" color="primary" *ngIf="WhoIsResult.data"
-                [cdkCopyToClipboard]="WhoIsResult.data">COPY</button>
+                [cdkCopyToClipboard]="WhoIsResult.data" (click)="ShowMessage()">COPY</button>
         </div>
         <p *ngFor="let item of WhoIsToArray">{{item}}</p>
     </div>
@@ -32,7 +32,7 @@
         <div class="terminal-header">
             <p>Cookie Scanner</p>
             <button mat-raised-button class="copy-button" color="primary" *ngIf="CoockiesResult.data"
-                [cdkCopyToClipboard]="CoockiesResult.data">COPY</button>
+                [cdkCopyToClipboard]="CoockiesResult.data" (click)="ShowMessage()">COPY</button>
         </div>
         <p *ngFor="let item of CookiesArray; let i = index">{{i}} - {{item}}</p>
     </div>
@@ -41,7 +41,7 @@
         <div class="terminal-header">
             <p>SSL Scanner</p>
             <button mat-raised-button class="copy-button" color="primary" *ngIf="CertificateResult.data"
-                [cdkCopyToClipboard]="CertificateResult.data">COPY</button>
+                [cdkCopyToClipboard]="CertificateResult.data" (click)="ShowMessage()">COPY</button>
         </div>
         <p *ngFor="let item of CertificateToArray">{{item}}</p>
     </div>
@@ -50,7 +50,7 @@
         <div class="terminal-header">
             <p>NS LOOKUP</p>
             <button mat-raised-button class="copy-button" color="primary" *ngIf="NsLookupResult.data"
-                [cdkCopyToClipboard]="NsLookupResult.data">COPY</button>
+                [cdkCopyToClipboard]="NsLookupResult.data" (click)="ShowMessage()">COPY</button>
         </div>
         <p *ngFor="let item of NsLookupArray">{{item}}</p>
     </div>
@@ -59,7 +59,7 @@
         <div class="terminal-header">
             <p>Scraper</p>
             <button mat-raised-button class="copy-button" color="primary" *ngIf="ScraperResult.data"
-                [cdkCopyToClipboard]="ScraperResult.data">COPY</button>
+                [cdkCopyToClipboard]="ScraperResult.data" (click)="ShowMessage()">COPY</button>
         </div>
         <p *ngIf="ScraperResult.data">{{ScraperResult.data}}</p>
     </div>
