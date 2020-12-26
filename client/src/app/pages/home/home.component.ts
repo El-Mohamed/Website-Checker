@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit
 {
 
   // User Modes
-
+  PingMode: string = "Ping";
   WhoIsMode: string = "Who Is";
   SSLMode: string = "Certificate";
   CookieMode: string = "Cookie Scan";
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit
   ScraperMode: string = "Scraper";
   AllModes: string = "All";
 
-  UserModes: string[] = [this.AllModes, this.WhoIsMode, this.CookieMode, this.SSLMode, this.NsLookupMode, this.ScraperMode];
+  UserModes: string[] = [this.AllModes, this.PingMode, this.WhoIsMode, this.CookieMode, this.SSLMode, this.NsLookupMode, this.ScraperMode];
   CurrentMode: string = this.AllModes;
 
   // Results

@@ -19,6 +19,15 @@
         </mat-form-field>
     </div>
 
+    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == PingMode">
+        <div class="terminal-header">
+            <p>Pinger</p>
+            <button mat-raised-button class="copy-button" color="primary" *ngIf="WhoIsResult.data"
+                [cdkCopyToClipboard]="PingResult.data" (click)="ShowMessage()">COPY</button>
+        </div>
+        <p *ngFor="let item of PingArray">{{item}}</p>
+    </div>
+
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WhoIsMode">
         <div class="terminal-header">
             <p>Who Is Scanner</p>
