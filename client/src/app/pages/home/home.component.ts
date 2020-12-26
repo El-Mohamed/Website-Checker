@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit
   WhoIsToArray: string[] = [];
   CookiesArray: string[] = [];
   NsLookupArray: string[] = [];
+  PingArray: string[] = [];
 
   // User Input
 
@@ -132,7 +133,11 @@ export class HomeComponent implements OnInit
   {
     try {
       this.PingResult = await this.backendService.PingWebsite(this.TargetWebsite);
-      console.log(this.PingResult);
+      this.PingResult.data = this.PingResult.data.replace("'", '');
+      this.PingResult.data = this.RemoveAtIndex(this.PingResult.data, 1);
+      this.PingResult.data = this.RemoveAtIndex(this.PingResult.data, this.PingResult.data.length);
+      this.PingArray = this.PingResult.data.split('\\n');
+      console.log(this.PingArray);
     }
     catch (error) {
       console.log(error);
