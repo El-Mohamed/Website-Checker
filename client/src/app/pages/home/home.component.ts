@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit
       this.WhoIsResult = await this.backendService.GetWhoIsInformation(this.TargetWebsite);
       this.WhoIsResult.data = this.WhoIsResult.data.replace("'", '');
       this.WhoIsResult.data = this.RemoveAtIndex(this.WhoIsResult.data, 1);
+      this.WhoIsResult.data = this.RemoveAtIndex(this.WhoIsResult.data, this.WhoIsResult.data.length);
       this.WhoIsToArray = this.WhoIsResult.data.split('\\n');
     }
     catch (error) {
@@ -91,6 +92,8 @@ export class HomeComponent implements OnInit
     try {
       this.CertificateResult = await this.backendService.GetCertificate(this.TargetWebsite);
       this.CertificateResult.data = this.CertificateResult.data.replace("'", '');
+      this.CertificateResult.data = this.RemoveAtIndex(this.CertificateResult.data, 1);
+      this.CertificateResult.data = this.RemoveAtIndex(this.CertificateResult.data, this.CertificateResult.data.length);
       this.CertificateToArray = this.CertificateResult.data.split('\\n');
     }
     catch (error) {
@@ -103,6 +106,8 @@ export class HomeComponent implements OnInit
     try {
       this.NsLookupResult = await this.backendService.GetNSLookup(this.TargetWebsite);
       this.NsLookupResult.data = this.NsLookupResult.data.replace("'", '');
+      this.NsLookupResult.data = this.RemoveAtIndex(this.NsLookupResult.data, 1);
+      this.NsLookupResult.data = this.RemoveAtIndex(this.NsLookupResult.data, this.NsLookupResult.data.length);
       this.NsLookupArray = this.NsLookupResult.data.split('\\n');
     }
     catch (error) {
