@@ -73,6 +73,8 @@ export class HomeComponent implements OnInit
   {
     try {
       this.CoockiesResult = await this.backendService.GetCookies(this.TargetWebsite);
+      this.CoockiesResult.data = this.CoockiesResult.data.replace('{', '');
+      this.CoockiesResult.data = this.CoockiesResult.data.replace('}', '');
       this.CookiesArray = this.CoockiesResult.data.split(",");
       console.log(this.CookiesArray);
     }
