@@ -26,6 +26,8 @@
                 [cdkCopyToClipboard]="PingResult.data" (click)="ShowMessage()">COPY</button>
         </div>
         <p *ngFor="let item of PingArray">{{item}}</p>
+        <mat-progress-bar class="progress-bar" mode="indeterminate" *ngIf="PingArray.length < 1 && ButtonPressed == true">
+        </mat-progress-bar>
     </div>
 
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WhoIsMode">

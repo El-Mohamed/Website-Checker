@@ -13,6 +13,8 @@ import { BackendService } from 'src/app/services/backend.service';
 export class HomeComponent implements OnInit
 {
 
+  ButtonPressed: boolean = false;
+
   // User Modes
   PingMode: string = "Ping";
   WhoIsMode: string = "Who Is";
@@ -54,6 +56,7 @@ export class HomeComponent implements OnInit
 
   GetAllInformation()
   {
+    this.ButtonPressed = true;
     this.GetWhoIsInformation();
     this.GetCookies();
     this.GetCertificate();
