@@ -126,6 +126,8 @@ export class HomeComponent implements OnInit
   {
     try {
       this.ScraperResult = await this.backendService.GetScrapedWebsite(this.TargetWebsite);
+      this.ScraperResult.data = this.RemoveAtIndex(this.ScraperResult.data, 1);
+      this.ScraperResult.data = this.ScraperResult.data.replace("'", '');
     }
     catch (error) {
       console.log(error);
