@@ -4,6 +4,10 @@ import helpers
 app = Flask(__name__)
 cors = CORS(app)
 
+@app.route("/api/wappanalyzer/<target>")
+def GetWappAnalyzer(target):
+        return (helpers.get_wappanalyzer(target))
+
 @app.route("/api/ping/<target>")
 def GetPing(target):
         return(helpers.ping_website(target))
