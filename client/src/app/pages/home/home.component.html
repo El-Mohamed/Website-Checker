@@ -19,17 +19,15 @@
         </mat-form-field>
     </div>
 
-    <div class="terminal">
+    <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == WappalyzerMode">
         <div class="terminal-header">
             <p>Technologies</p>
             <button mat-raised-button class="copy-button" color="primary" *ngIf="WappAnalyzerResult.data"
                 [cdkCopyToClipboard]="WappAnalyzerResult.data" (click)="ShowMessage()">COPY</button>
         </div>
-
         <div *ngIf="WappAnalyzerResultParsed">
             <p *ngFor="let item of WappAnalyzerResultParsed[0].technologies">{{item.name}}</p>
         </div>
-
     </div>
 
     <div class="terminal" *ngIf="CurrentMode == AllModes || CurrentMode == PingMode">

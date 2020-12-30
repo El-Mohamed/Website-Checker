@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit
   ButtonPressed: boolean = false;
 
   // User Modes
+  WappalyzerMode: string = "Wappalyzer";
   PingMode: string = "Ping";
   WhoIsMode: string = "Who Is";
   SSLMode: string = "Certificate";
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit
   ScraperMode: string = "Scraper";
   AllModes: string = "All";
 
-  UserModes: string[] = [this.AllModes, this.PingMode, this.WhoIsMode, this.CookieMode, this.SSLMode, this.NsLookupMode, this.ScraperMode];
+  UserModes: string[] = [this.AllModes, this.WappalyzerMode, this.PingMode, this.WhoIsMode, this.CookieMode, this.SSLMode, this.NsLookupMode, this.ScraperMode];
   CurrentMode: string = this.AllModes;
 
   // Results
