@@ -35,6 +35,9 @@ export class HomeComponent implements OnInit
   NsLookupResult: ApiResult = {} as ApiResult;
   ScraperResult: ApiResult = {} as ApiResult;
   PingResult: ApiResult = {} as ApiResult;
+  WappAnalyzerResult: ApiResult = {} as ApiResult;
+  WappAnalyzerResultParsed: any;
+
 
   // Parsed Results
 
@@ -43,6 +46,7 @@ export class HomeComponent implements OnInit
   CookiesArray: string[] = [];
   NsLookupArray: string[] = [];
   PingArray: string[] = [];
+  Arrayy: string[] = [];
 
   // User Input
 
@@ -63,13 +67,14 @@ export class HomeComponent implements OnInit
     this.GetNsLookup();
     this.GetScrapedWebsite();
     this.PingWebsite();
+    this.GetTechnolgiesFromWebsite();
   }
 
   async GetWhoIsInformation()
   {
     try {
       this.WhoIsResult = await this.backendService.GetWhoIsInformation(this.TargetWebsite);
-      this.WhoIsResult.data = this.WhoIsResult.data.replace("'", '');
+      this.WhoIsResult.data = this.WhoIsResult.data.replace("'", "\\");
       this.WhoIsResult.data = this.RemoveAtIndex(this.WhoIsResult.data, 1);
       this.WhoIsResult.data = this.RemoveAtIndex(this.WhoIsResult.data, this.WhoIsResult.data.length);
       this.WhoIsToArray = this.WhoIsResult.data.split('\\n');
@@ -146,6 +151,27 @@ export class HomeComponent implements OnInit
     }
     catch (error) {
       console.log(error);
+    }
+  }
+
+  async GetTechnolgiesFromWebsite()
+  {
+    try {
+      this.WappAnalyzerResult = await this.backendService.GetWappAnalyzerResult(this.TargetWebsite);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, 1);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, 1);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, 1);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResult.data = this.RemoveAtIndex(this.WappAnalyzerResult.data, this.WappAnalyzerResult.data.length);
+      this.WappAnalyzerResultParsed = JSON.parse(this.WappAnalyzerResult.data);
+    } catch (error) {
+
     }
   }
 

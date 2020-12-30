@@ -46,4 +46,11 @@ export class BackendService
     const url = this.requestUrl + 'ping/' + target;
     return this.http.get<any>(url).toPromise();
   }
+
+  GetWappAnalyzerResult(target: string)
+  {
+    const url = this.requestUrl + 'wappanalyzer/' + target;
+    return this.http.get<any>(url).toPromise();
+  };
+
 }
