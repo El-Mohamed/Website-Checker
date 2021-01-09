@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit
   WappalyzerMode: string = "Wappalyzer";
   PingMode: string = "Ping";
   WhoIsMode: string = "Who Is";
-  SSLMode: string = "Certificate";
+  SSLMode: string = "SSL Scan";
   CookieMode: string = "Cookie Scan";
   NsLookupMode: string = "NS Lookup";
   ScraperMode: string = "Scraper";
