@@ -7,7 +7,7 @@ import { ApiResult } from '../interfaces/WhoIsResult';
 })
 export class BackendService
 {
-  private requestUrl: string = "http://128.199.42.95:5000/api/";
+  private requestUrl: string = "http://188.166.16.160:5000/api/";
 
   constructor(public http: HttpClient) { }
 
