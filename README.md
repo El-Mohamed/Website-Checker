@@ -1,5 +1,5 @@
 # Website-Checker
-web checker passively collects information about another website
+Web Cecker passively collects information about another website
 
 ## Tools
 * Wappalyzer
@@ -9,6 +9,9 @@ web checker passively collects information about another website
 * Webscraper
 * Whois
 * SSL Scanner
+
+## Extra
+* Copy Button
 
 ## Preview
 ## Main
