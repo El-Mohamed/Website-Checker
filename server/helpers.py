@@ -9,12 +9,8 @@ import urllib.request
 
 def get_wappanalyzer(domain):
 	command = "curl -H 'x-api-key: k4o5UMUVZe3ePKKSUSOTMaGfRFxkY7zK5WOuI4Ga' 'https://api.wappalyzer.com/lookup/v2/?urls=https://'" + domain
-#	data = {'x-api-key':'k4o5UMUVZe3ePKKSUSOTMaGfRFxkY7zK5WOuI4Ga'}
-#	res = requests.get(url = "https://api.wappalyzer.com/lookup/v2/?urls=https://" + domain, params = data )
 	subprocess1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 	api_output = subprocess1.communicate()
-#	str(api_output).replace("\\", "")
-#	data = {'api_dev_key':'k4o5UMUVZe3ePKKSUSOTMaGfRFxkY7zK5WOuI4Ga'} 
 	data = {'data': str(api_output)}
 	return data
 
@@ -37,8 +33,6 @@ def get_cookies(domain):
 	a_session = requests.get(str(domain))
 	session_cookies = a_session.cookies
 	cookies_dictonairy  = session_cookies.get_dict()
-#	object = namedtuple("DataObject", cookies_dictonairy.keys())(*cookies_dictonairy.values())
-#	json_result = json.dumps(object, separators=(',', ':'))
 	result = { 'data': str(cookies_dictonairy) }
 	return jsonify(result)
 
